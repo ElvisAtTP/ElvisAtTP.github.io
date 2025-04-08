@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+<style>
+h1 {
+        font-family: Arial, sans-serif; 
+        font-size: 33px; 
+        color:#5A5A5A; 
+        text-align: center;
+        margin-top: 10px; 
+}
+
+h2 {
+        font-family: Arial, sans-serif; 
+        font-size: 16px; 
+        color:#000000; 
+        text-align: center;
+        margin-top: 5px;
+	
+
+      }
+
+model-viewer {
+  width: 100%;
+  height: 90%;
+  background-color: #5A5A5A;
+}
+	
+body {
+	margin:0;
+	padding:0;
+	}
+</style>
+  </head>
+<body>
+    <h1>Pro-Snap</h1>
+    <h2>Let the AR journey begin</h2>
+
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="trial.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1" autoplay camera-orbit="-42.26deg 72.51deg 495.2m" field-of-view="30deg" environment-image="aircraft_workshop_01_1k.hdr" camera-orbit="668.7deg 66deg 407.3m" field-of-view="30deg" autoplay id="gear" height="80%">
+     
+ <button class="Hotspot" slot="hotspot-1" data-surface="0 0 5116 5077 5078 0.072 0.729 0.199" data-visibility-attribute="visible" onMouseOver="addhotspot1()"  onMouseOut="removehotspot1()">
+          <div class="HotspotAnnotation" id="hotspot1" style="visibility:hidden">Shutter Button</div>
+      </button>
+ <button class="Hotspot" slot="hotspot-2" data-surface="1 0 3816 3812 3809 0.082 0.381 0.537" data-visibility-attribute="visible" onMouseOver="addhotspot2()" 
+onMouseOut="removehotspot2()">
+          <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Scroll Wheel</div>
+      </button>
+<!--button class="Hotspot" slot="hotspot-3" data-surface="2 1 2292 2317 2318 0.287 0.648 0.065" data-visibility-attribute="visible" onMouseOver="addhotspot3()" onMouseOut="removehotspot3()"//-->
+ <button class="Hotspot" slot="hotspot-3" data-surface="1 0 3816 812 809 0.082 0.881 0.837" data-visibility-attribute="visible" onMouseOver="addhotspot3()" 
+onMouseOut="removehotspot3()">
+
+
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Ergonomic Handle</div>
+    </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+<div style="position:absolute; bottom:65px; left:200px">
+	<button onClick="setOrbit('721.3deg 85.06deg 495.2m')">Front</button>
+	<button onClick="setOrbit('720.5deg 22.5deg 427m')">Top</button>
+	<button onClick="setOrbit('815.4deg 81.33deg 467m')">Right</button>
+</div>
+
+<div class="controls" style="position: absolute; bottom: 35px; left: 200px">
+	<div>Variant: 
+     	<button onClick="VBtn01()">01</button>
+      	<button onClick="VBtn02()">02</button>
+      	<button onClick="VBtn03()">03</button>
+    	</div>
+  </div>
+
+<div class="controls" style="position: absolute; bottom: 5px; left: 200px">
+	<div>Animation: 
+		<button id="default1Btn" onClick="Btn01()">Detach</button>
+		<button id="default2Btn" onClick="Btn02()">Rise</button>
+		<button id="default1Btn" onClick="Btn03()">Push Button</button>
+		<button id="default2Btn" onClick="Btn04()">Scroll Wheel</button>
+
+	<button id="pauseBtn" onClick="pauseAnimation()">pause Animation</button>
+	</div>
+</div>  
+
+    </model-viewer>  
+
+<script>
+	function setOrbit(orbit) {
+		document.getElementById('gear').cameraOrbit = orbit;
+	}
+
+		  function addhotspot1(){
+			document.getElementById("hotspot1").style.visibility="visible"
+		  }
+		  function removehotspot1(){
+			document.getElementById("hotspot1").style.visibility="hidden";
+		  }
+		  
+		  function addhotspot2(){
+			document.getElementById("hotspot2").style.visibility="visible"
+		  }
+		  function removehotspot2(){
+			document.getElementById("hotspot2").style.visibility="hidden";
+		  }
+		  function addhotspot3(){
+			document.getElementById("hotspot3").style.visibility="visible"
+		  }
+		  function removehotspot3(){
+			document.getElementById("hotspot3").style.visibility="hidden";
+		  }
+
+	function VBtn01() {
+		document.getElementById('gear').variantName = "V1";
+	}
+	function VBtn02() {
+		document.getElementById('gear').variantName = "V2";
+	}
+	function VBtn03() {
+		document.getElementById('gear').variantName = "V3";
+	}
+
+
+
+</script>
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+<script>
+// javascript that is call "Btn01()" and "Btn02()" that find the html element ID call "gear" and play and loop the element with specific "animationName". There is also a separate script call pauseAnimation() that pause any animation playing. 
+
+      	
+		function Btn01() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Detach";
+			document.getElementById('gear').play();
+		}
+		function Btn02() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Rise";
+			document.getElementById('gear').play();
+		}
+		function Btn03() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Button push";
+			document.getElementById('gear').play();
+		}
+		function Btn04() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Scroll";
+			document.getElementById('gear').play();
+		}
+	function pauseAnimation() {
+			document.getElementById('gear').pause();
+		}
+</script>
+  </body>
+</html>
