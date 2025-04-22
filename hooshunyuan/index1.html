@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+ }
+      .header-container {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-family: 'Tahoma', sans-serif;
+        font-size: 25px;
+        color: #620385;
+        text-align: center;
+        margin: 0;
+        padding: 10px 0; /* Adjust padding as needed */
+        background-color: #ffca45;
+      }
+      .Hotspot {
+  background: #fbe56a;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 20px;
+  padding: 8px;
+  position: relative;
+  transition: opacity 0.3s;
+  width: 20px;
+}
+.Hotspot:not([data-visible]) {
+  background: transparent;
+  border: 4px solid #fbe56a;
+  box-shadow: none;
+  height: 16px;
+  pointer-events: none;
+  width: 16px;
+}
+.HotspotAnnotation{
+  background: #f3dd53;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  color: rgba(53, 1, 69, 0.8);
+  display: block;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  left: calc(100% + 1em);
+  max-width: 128px;
+  overflow-wrap: break-word;
+  padding: 0.5em 1em;
+  position: absolute;
+  top: 50%;
+  width: max-content;
+}
+model-viewer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  height: 60%;
+  border: 0px, solid, #000000;
+	
+
+model-viewer[ar-status=" session-started"] > #ar-button2 {
+	display: block;
+	}
+	
+	
+	
+	
+}
+.yes {
+  font-family: 'Tahoma', sans-serif;
+        font-size: 25px;
+        color: #620385;
+        text-align: center;
+        margin: 0;
+        padding: 10px 0;
+}
+.div-wrapper {
+  font-family: 'Tahoma', sans-serif;
+        font-size: 25px;
+        color: #620385;
+        text-align: center;
+        padding: 0.5rem;
+}
+
+
+
+    </style>
+  </head>
+  <body>
+         <!-- Title for the model viewer -->
+         <h1>SUPER-KOLLIK</h1>
+         <!-- <model-viewer> HTML element -->
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="Hoo Shun Yuan_TD02_DVE_Assignment.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1" camera-orbit="-27.36deg 85.66deg 959.3m" field-of-view="30deg" id="gear">
+      <button class="Hotspot" slot="hotspot-1" data-surface="3 0 5884 5849 5885 0.248 0.627 0.125" data-visibility-attribute="visible" onMouseOver="addhotspot1()" onMouseOut="removehotspot1()">
+          <div class="HotspotAnnotation" id="hotspot1" style="visibility:hidden">RFID</div>
+      </button><button class="Hotspot" slot="hotspot-2" data-surface="3 1 3838 3837 3830 0.402 0.359 0.239" data-visibility-attribute="visible" onMouseOver="addhotspot2()" onMouseOut="removehotspot2()">
+          <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Ticket Scanner</div>
+      </button><button class="Hotspot" slot="hotspot-3" data-surface="3 1 471 398 397 0.264 0.374 0.363" data-visibility-attribute="visible" onMouseOver="addhotspot3()" onMouseOut="removehotspot3()">
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Dispense Button</div>
+      </button><button class="Hotspot" slot="hotspot-4" data-surface="7 0 74 75 112 0.169 0.516 0.315" data-visibility-attribute="visible" onMouseOver="addhotspot4()" onMouseOut="removehotspot4()">
+          <div class="HotspotAnnotation" id="hotspot4" style="visibility:hidden">Gate</div>
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button">
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+    </div>  
+    </model-viewer>
+	<table style="position: absolute; bottom: 0px;  display: block; margin-left: auto; margin-right: auto; width: 100%; border: 0px, solid, black; background-color: #f3dd53;" id="ar-button2">
+        <tr>
+          <td colspan="4" style="text-align: center; font-family: 'Tahoma', sans-serif;
+        font-size: 14px; font-weight: bold; padding: 5px" width="100%" >A Super Adventure</td>
+        </tr>
+      
+        <tr>
+          <td width="25%">Variants:</td>
+		  <td width="25%"><button onClick="VBtn01()" style="height: 30px" id="ar-button2">Super Purple</button></td>
+		  <td width="25%"><button onClick="VBtn02()" style="height: 30px" id="ar-button2">Cheer Yellow</button></td>
+		  <td width="25%"><button onClick="VBtn03()" style="height: 30px" id="ar-button2">Homeland White</button></td>
+        </tr>
+      
+        <tr>
+          <td>Views:</td>
+		  <td><button onClick="setOrbit('00.00deg 22.50deg 1000m')" style="height: 30px" id="ar-button2">Top</button></td>
+		  <td><button onClick="setOrbit('90.00deg 90.00deg 1000m')" style="height: 30px" id="ar-button2">Right</button></td>
+		  <td><button onClick="setOrbit('0.00deg 90.00deg 1000m')" style="height: 30px" id="ar-button2">Front</button></td>
+        </tr>
+
+        <tr>
+          <td>Animations:</td>
+		  <td><select id="animationSelect" style="height: 30px" id="ar-button2">
+            <option value="OpenTop" style="height: 30px">Open Top</option>
+            <option value="RemoveCoin" style="height: 30px">Remove Coin</option>
+            <option value="FullOpen" style="height: 30px">Open Full</option>
+            <option value="Cartridge" style="height: 30px">Remove Cartridge</option>
+          </select></td>
+		  <td>Pause/Play:</td>
+		  <td><button id="playPauseBtn" onClick="toggleAnimation()" style="height: 30px"id="ar-button2">Play</button></td>
+        </tr>
+		
+      </table>
+    <script> 
+      function addhotspot1() {
+        document.getElementById("hotspot1").style.visibility = "visible";
+      }
+      function removehotspot1() {
+        document.getElementById("hotspot1").style.visibility = "hidden";
+      }
+      function addhotspot2() {
+        document.getElementById("hotspot2").style.visibility = "visible";
+      }
+      function removehotspot2() {
+        document.getElementById("hotspot2").style.visibility = "hidden";
+      }
+      function addhotspot3() {
+        document.getElementById("hotspot3").style.visibility = "visible";
+      }
+      function removehotspot3() {
+        document.getElementById("hotspot3").style.visibility = "hidden";
+      }
+      function addhotspot4() {
+        document.getElementById("hotspot4").style.visibility = "visible";
+      }
+      function removehotspot4() {
+        document.getElementById("hotspot4").style.visibility = "hidden";
+      }
+      function setOrbit(orbit) {
+        document.getElementById('gear').cameraOrbit = orbit;
+      }	
+      function VBtn01() {
+		    document.getElementById('gear').variantName = "V1";
+	    }
+	    function VBtn02() {
+		    document.getElementById('gear').variantName = "V2";
+	    }
+	    function VBtn03() {
+	    	document.getElementById('gear').variantName = "V3";
+	    }
+         function toggleAnimation() {
+            var player = document.getElementById('gear');
+            var select = document.getElementById('animationSelect');
+            var playPauseBtn = document.getElementById('playPauseBtn');
+
+            if (player.paused) {
+                var selectedAnimation = select.value;
+                player.animationName = selectedAnimation;
+                player.play();
+                playPauseBtn.textContent = 'Pause';
+            } else {
+                player.pause();
+                playPauseBtn.textContent = 'Play';
+            }
+        }
+        function stopAnimation() {
+            var player = document.getElementById('gear');
+            var playPauseBtn = document.getElementById('playPauseBtn');
+            var currentTime = document.getElementByID('time')
+
+            player.pause();
+            player.time= 0;
+            playPauseBtn.textContent = 'Play';
+          }
+  </script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+  </body>
+</html>
