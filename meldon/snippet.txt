@@ -1,0 +1,20 @@
+<model-viewer src="omg DVE.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1.19" exposure="1.22" autoplay shadow-softness="1">
+    <button class="Hotspot" slot="hotspot-2" data-surface="10 0 6 68 66 0.212 0.370 0.418" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Tracker Module</div>
+    </button><button class="Hotspot" slot="hotspot-3" data-surface="12 0 67 33 104 0.114 0.375 0.512" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Rep Counter</div>
+    </button><button class="Hotspot" slot="hotspot-4" data-surface="7 0 194 193 192 0.360 0.016 0.624" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Handle</div>
+    </button><button class="Hotspot" slot="hotspot-5" data-surface="4 0 1302 1344 1343 0.730 0.238 0.031" data-visibility-attribute="visible">
+        <div class="HotspotAnnotation">Adjustable Stand</div>
+    </button>
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+    <button slot="ar-button" id="ar-button">
+        View in your space
+    </button>
+    <div id="ar-prompt">
+        <img src="https://modelviewer.dev/shared-assets/icons/hand.png">
+    </div>
+</model-viewer>
