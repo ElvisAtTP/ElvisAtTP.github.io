@@ -1,0 +1,224 @@
+<html lang="en">
+  <head>
+    <title>&lt;model-viewer&gt; template</title>
+		<meta charset="utf-8">
+		<meta name="description" content="&lt;model-viewer&gt; template">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+<style>
+h1 {
+
+        font-family: Arial, sans-serif; 
+        font-size: 30px; 
+        color:#CD3131; 
+        text-align: center;
+        margin-top: 25px; 
+      }
+
+model-viewer {
+ 		width: 100%;
+  		height: 90%;
+  		background-color: #E6E6E6;
+	    overflow: visible;
+		}
+
+h2 {
+        font-family: Open Sans, sans-serif; 
+        font-size: 15px; 
+        color:#FFFFFF; 
+        text-align: center;
+        margin-top: 10px; 
+      }
+	
+button{
+		padding: 5px;
+		width: 80px;
+	    height: 40px;
+	
+	}
+	
+</style>
+	
+
+  <body> <h1>SAFRA NOVA</h1>
+    <!-- <model-viewer> HTML element -->
+
+	  
+	  
+    <model-viewer src="omg_DVE.glb" ar camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1.19" exposure="1.22" autoplay shadow-softness="1" id="gear">
+      <button class="Hotspot" slot="hotspot-2" data-surface="10 0 6 68 66 0.212 0.370 0.418" data-visibility-attribute="visible"onMouseOver="addhotspot1()"  onMouseOut="removehotspot1()">
+
+          <div class="HotspotAnnotation" id="hotspot1" style="visibility:hidden">Tracker Module</div>
+      </button><button class="Hotspot" slot="hotspot-3" data-surface="12 0 67 33 104 0.114 0.375 0.512" data-visibility-attribute="visible"onMouseOver="addhotspot2()"  onMouseOut="removehotspot2()">
+          <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Rep Counter</div>
+
+      </button><button class="Hotspot" slot="hotspot-4" data-surface="7 0 194 193 192 0.360 0.016 0.624" data-visibility-attribute="visible"onMouseOver="addhotspot3()"  onMouseOut="removehotspot3()">
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Handle</div>
+
+      </button><button class="Hotspot" slot="hotspot-5" data-surface="4 0 1302 1344 1343 0.730 0.238 0.031" data-visibility-attribute="visible"onMouseOver="addhotspot4()"  onMouseOut="removehotspot4()">
+          <div class="HotspotAnnotation" id="hotspot4" style="visibility:hidden">Adjustable Stand</div>
+
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+      <button slot="ar-button" id="ar-button" style="width: 200px; display: block; height: 40px;" >
+          View in your space
+      </button>
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+
+<!-- slot="ar-overlay" style="position:absolute; bottom:0px; left: 0px; padding: 10px; z-index:10; display: block;">
+	<button onClick="setOrbit('181.5deg 22.5deg 0.4608m')">Front</button>
+	<button onClick="setOrbit('-4.498deg 91.94deg 0.4608m')">Top</button>
+	<button onClick="setOrbit('181.8deg 89.72deg 0.4608m')">Bottom</button>
+</div>
+
+<div class="controls" slot="ar-overlay" style="position:absolute; bottom: 0px; left: 10px; display: block">
+ 	 <div>
+	  <strong>Variant:</strong><br> 
+  	  <button onClick="VBtn01()">Premium</button>
+ 	  <button onClick="VBtn02()">White</button>
+ 	  <button onClick="VBtn03()">Black</button>
+	 </div>
+</div>
+			
+
+<div class="controls" slot="ar-overlay" style="position:relative; Top: 10px; left: 10px">
+	<div><strong>Animation:</strong><br> 
+		<button id="default1Btn" onClick="Btn01()">Handle Animation</button>
+		<button id="default2Btn" onClick="Btn02()">Button Animation</button>
+		<button id="default3Btn" onClick="Btn03()">Stand Animation</button>
+
+	<button id="pauseBtn" onClick="pauseAnimation()">pause Animation</button>
+	</div>
+</div>
+		
+  <div id="ar-exit-button" slot="ar-overlay" style="position:absolute; top: 20px; left: 20px; display: none;">
+    <button onClick="document.querySelector('model-viewer').dismissAR()">Exit AR</button>
+  </div-->
+		
+		<div style="position:absolute; bottom:150px; left: 10px; display: block">
+	<button onClick="setOrbit('181.5deg 22.5deg 0.4608m')">Front</button>
+	<button onClick="setOrbit('-4.498deg 91.94deg 0.4608m')">Top</button>
+	<button onClick="setOrbit('181.8deg 89.72deg 0.4608m')">Bottom</button>
+</div>
+
+<div  class="controls" style="position:absolute; bottom:100px;  left: 10px">
+	<div>Variant: 
+     	<button onClick="VBtn01()">Premium</button>
+      	<button onClick="VBtn02()">White</button>
+      	<button onClick="VBtn03()">Black</button>
+    	</div>
+  </div>
+
+<div  class="controls" style="position:absolute; bottom:50px; left: 10px">
+	<div>Animation: 
+		<button id="default1Btn" onClick="Btn01()">Handle</button>
+		<button id="default2Btn" onClick="Btn02()">Button</button>
+		<button id="default3Btn" onClick="Btn03()">Stand</button>
+  		<button id="pauseBtn" onClick="pauseAnimation()">Pause</button>
+	</div>
+</div>
+
+    </model-viewer>  
+
+
+<script>
+  const modelViewer = document.querySelector('model-viewer');
+  const arExitButton = document.getElementById('ar-exit-button');
+
+  	modelViewer.addEventListener('enter-ar', () => {
+    arExitButton.style.display = 'block'; // Show button in AR
+  });
+
+  	modelViewer.addEventListener('exit-ar', () => {
+    arExitButton.style.display = 'none'; // Hide button in web view
+  });
+</script>
+	  
+	  
+	  
+<script>
+	// script for button to change Model-Viewer Variants
+	// function name() is to call the html element with ID call 'gear' and change the variantName to specfic variant name created in Blender.
+	function VBtn01() {
+		document.getElementById('gear').variantName = "Premium";
+	}
+	function VBtn02() {
+		document.getElementById('gear').variantName = "White";
+	}
+	function VBtn03() {
+		document.getElementById('gear').variantName = "Black";
+	}
+</script>
+
+<script>
+
+		  function addhotspot1(){
+			document.getElementById("hotspot1").style.visibility="visible"
+		  }
+		  function removehotspot1(){
+			document.getElementById("hotspot1").style.visibility="hidden";
+		  }
+		  
+		  function addhotspot2(){
+			document.getElementById("hotspot2").style.visibility="visible"
+		  }
+		  function removehotspot2(){
+			document.getElementById("hotspot2").style.visibility="hidden";
+		  }
+		  function addhotspot3(){
+			document.getElementById("hotspot3").style.visibility="visible"
+		  }
+		  function removehotspot3(){
+			document.getElementById("hotspot3").style.visibility="hidden";
+		  }
+		  
+		  function addhotspot4(){
+			document.getElementById("hotspot4").style.visibility="visible"
+		  }
+		  function removehotspot4(){
+			document.getElementById("hotspot4").style.visibility="hidden";
+		  }
+
+
+</script>
+
+
+
+
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+
+<script>
+// javascript that is call "Btn01()" and "Btn02()" that find the html element ID call "gear" and play and loop the element with specific "animationName". There is also a separate script call pauseAnimation() that pause any animation playing. 
+		function setOrbit(orbit) {
+			document.getElementById('gear').cameraOrbit = orbit;
+		}
+      	
+		function Btn01() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Handle";
+			document.getElementById('gear').play();
+		}
+		function Btn02() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Button";
+			document.getElementById('gear').play();
+		}
+		function Btn03() {
+			document.getElementById('gear').pause();
+			document.getElementById('gear').animationName = "Stand";
+			document.getElementById('gear').play();
+		}
+
+	function pauseAnimation() {
+			document.getElementById('gear').pause();
+		}
+</script>
+  </body>
+</html>
