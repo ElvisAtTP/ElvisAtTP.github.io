@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <style>
+.button1 {
+  background-color: "#023020";
+  border: 1px solid black;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding:10px;
+  width: 120px;
+  height: 80px; 
+}
+  
+.button2 {
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+	  padding:10px;
+  width:70px;}
+  
+.rose {
+  border-color: #B76E79;
+  color: #B76E79;
+}
+
+.rose:hover {
+  background-color: #B76E79;
+  color: white;
+}
+
+.button3 {
+  background-color: #FFFFFF;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding:10px;
+  width: 70px;}
+
+.snow {
+  border-color: #e7e7e7;
+  color: black;
+}
+
+.snow:hover {
+  background-color: #FBFCF6;
+  color: black	;
+}
+  
+.button4 {
+  
+  border: black;
+  border: 1px solid black;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  padding:10px;
+  width: 70px;
+	  }
+  
+.pine {
+  border-color: #01796f;
+  color: #01796f;
+}
+
+.pine:hover {
+  background-color: #01796f;
+  color: white	;
+}
+	  
+
+</style>
+    <title>&lt;model-viewer&gt; template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="description" content="&lt;model-viewer&gt; template">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="./styles.css" rel="stylesheet"/>
+  </head>
+    <body bgcolor="#023020">
+    <!-- <model-viewer> HTML element -->
+    <model-viewer src="model_multi_animation.glb"
+	IOSsrc="model_multi_animation.glb"
+	ar ar-modes="scene-viewer webxr quick-look" camera-controls tone-mapping="neutral" poster="poster.png" shadow-intensity="1" camera-orbit="215.2deg 67.6deg 0.543m" field-of-view="30deg" auto-rotate id ="fitfusion">
+
+<button class="Hotspot" slot="hotspot-1"
+data-position="-0.004113699102844677m -1.3877787807814457e-17m 0.07915562104650431m"
+data-normal="0m 1m 2.220446049250313e-16m"
+data-visibility-attribute="visible"
+onMouseOver="addhotspot1()" 
+onMouseOut="removehotspot1()">
+        <div class="HotspotAnnotation" id="hotspot1" style="visibility:hidden">Wireless Charging Base</div>
+</button>
+<button class="Hotspot" slot="hotspot-2"
+data-position="-0.0012426410142265922m 0.17365808011823924m 0.04456240165914409m"
+data-normal="-0.0326070565647362m 0.03269721345689095m 0.9989332670876161m"
+data-visibility-attribute="visible"
+onMouseOver="addhotspot2()" 
+onMouseOut="removehotspot2()">
+	  <div class="HotspotAnnotation" id="hotspot2" style="visibility:hidden">Lid</div>
+      </button>
+	  <button class="Hotspot" slot="hotspot-3" data-position="-0.0001564389542997517m 0.14386708094561432m 0.043254237324041295m" data-normal="-0.015021778880736808m -0.005269450870652284m 0.9998732814946002m" data-visibility-attribute="visible"
+	  onMouseOver="addhotspot3()" 
+	  onMouseOut="removehotspot3()">
+          <div class="HotspotAnnotation" id="hotspot3" style="visibility:hidden">Healthiness Indicator</div>
+      </button>
+	  <button class="Hotspot" slot="hotspot-4" data-position="0.035140833466568794m 0.1034509360353342m 0.025290291076425934m" data-normal="0.8092199110537562m -0.05854315923865638m 0.5845817599450983m" data-visibility-attribute="visible"
+	  onMouseOver="addhotspot4()" 
+	  onMouseOut="removehotspot4()">
+          <div class="HotspotAnnotation" id="hotspot4" style="visibility:hidden">Grip</div>
+      </button>
+      <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+      </div>
+     
+      <div id="ar-prompt">
+          <img src="ar_hand_prompt.png">
+      </div>
+	  <div style="position:absolute; bottom:0px; left:0px">
+	  
+	
+</div>
+	  <div class="controls" style="position: absolute; bottom: 0px; left: 0px">
+	  	<font color="#013220" size="3px"><B>View Angles - </B></font>
+	<button class="button1" onClick="setOrbit('-1.491e-16deg 89.76deg 0.543m')">Front</button>
+	<button class="button1" onClick="setOrbit('0.4101deg 22.5deg 0.543m')">Top</button>
+	<button class="button1" onClick="setOrbit('89.8deg 87.28deg 0.543m')">Side</button>
+	<button class="button1" onClick="setOrbit('89.8deg 157.5deg 0.543m')">Bottom</button>
+	  <div><font color="#013220" size="3px"> <B>Colour Variants - </B></font> 
+     	<button class ="button3 snow" onClick="VBtn01()">Snow White</button>
+      	<button class ="button2 rose" onClick="VBtn02()">Rose Gold</button>
+      	<button class ="button4 pine" onClick="VBtn03()">Pine Green</button>
+    	</div>
+	
+	<div><font color="#013220" size="3px"><B>Component Animations - </B></font> 
+     	<button class="button1" id = "default1Btn" onClick="Abtn1()">Wireless Charging Base</button>
+      	<button class="button1" id = "default1Btn" onClick="Abtn2()">Cap</button>
+      	<button class="button1" id = "default1Btn" onClick="Abtn3()">Anti Slip Grip</button>
+		<button class="button1" id="pauseBtn" onClick="pauseAnimation()">Pause Animation
+		<i class="material-icons" style="font-size:17px;color:red">pause_circle_outline</i></button>
+    	</div>
+
+	
+  </div>
+    </model-viewer>  
+	
+	<script>
+	// This is the script which will use button to change Animations
+	// Adding functions here to call the html element with ID call 'fitfusion' and change animations.
+	
+	function Abtn1() {
+			document.getElementById('fitfusion').pause();
+			document.getElementById('fitfusion').animationName = "meshAction";
+			document.getElementById('fitfusion').play();
+		}
+		function Abtn2() {
+			document.getElementById('fitfusion').pause();
+			document.getElementById('fitfusion').animationName = "CubeAction";
+			document.getElementById('fitfusion').play();
+		}
+		function Abtn3() {
+			document.getElementById('fitfusion').pause();
+			document.getElementById('fitfusion').animationName = "STLB ATF 12.20.1.177 COLOR=�(21D391E9-A7AD-4CF0-964D-B76C2048";
+			document.getElementById('fitfusion').play();
+		}
+	function pauseAnimation() {
+			document.getElementById('fitfusion').pause();
+		}
+</script>
+
+<script>
+	// script for button to change Model-Viewer Variants
+	// function name() is to call the html element with ID call 'fitfusion' and change the variantName to specfic variant name created in Blender.
+	function VBtn01() {
+		document.getElementById('fitfusion').variantName = "V1";
+	}
+	function VBtn02() {
+		document.getElementById('fitfusion').variantName = "V2";
+	}
+	function VBtn03() {
+		document.getElementById('fitfusion').variantName = "V3";
+	}
+</script>
+	<script>
+	 function addhotspot1(){
+			document.getElementById("hotspot1").style.visibility="visible"
+		  }
+		  function removehotspot1(){
+			document.getElementById("hotspot1").style.visibility="hidden";
+		  }
+		   function addhotspot2(){
+			document.getElementById("hotspot2").style.visibility="visible"
+		  }
+		  function removehotspot2(){
+			document.getElementById("hotspot2").style.visibility="hidden";
+		  }
+		   function addhotspot3(){
+			document.getElementById("hotspot3").style.visibility="visible"
+		  }
+		  function removehotspot3(){
+			document.getElementById("hotspot3").style.visibility="hidden";
+		  }
+		   function addhotspot4(){
+			document.getElementById("hotspot4").style.visibility="visible"
+		  }
+		  function removehotspot4(){
+			document.getElementById("hotspot4").style.visibility="hidden";
+		  }
+	</script>
+	<script>
+	function setOrbit(orbit) {
+		document.getElementById('fitfusion').cameraOrbit = orbit;
+	}
+</script>
+	
+    <script src="script.js"></script>
+    <!-- Loads <model-viewer> for browsers: -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+	<H3 align ="center"><font color="white"><B>FitFusion<br> <I>Your Ultimate Beverage Companion</H3>
+  </body>
+</html>
